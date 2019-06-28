@@ -45,22 +45,25 @@ class UwaUpload extends React.Component {
     uploadFile() {
         let data = new FormData();
         let file = this.state.files[0];
-        let url = 'http://localhost:4000/testupload';
+        let url = 'http://localhost:4000/upload';
         data.append('file', file);
         data.append('name', file.name);
 
         this.showLoading();
 
         Axios.post(url, data).then(res => {
+            console.log(res);
             setTimeout(() => {
+                let public_id = (res.data.result !== undefined) ? res.data.result.public_id : '';
                 this.setState({
-                    publicId: res.data.result.public_id,
+                    publicId: public_id,
                     showLoading: false
                 });
             }, 2000); // wait 1 sec to load
 
         }).catch(error => {
-            console.log(error);
+            console.log(error.response.data);
+            console.log(error.response.status);
         });
     }
 
