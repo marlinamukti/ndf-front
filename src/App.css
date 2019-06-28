@@ -46,7 +46,7 @@
   //border:1px solid black;
   width: 100%;
   max-width: 330px;
-  padding: 15px;
+  padding: 25px 15px 25px 15px;
   margin: auto;
   background-color: white;
 }
@@ -74,8 +74,18 @@
   border-top-right-radius: 0;
 }
 
+.form-signin img{
+  //border:1px solid black;
+  display: block;
+  margin: auto;
+}
+
+.h1-login{
+  color: mediumvioletred;
+}
 .btn-big-pink{
   background-color: lightcoral;
+  color: mediumvioletred;
 }
 .btn-big-pink:hover{
   background-color: whitesmoke;
