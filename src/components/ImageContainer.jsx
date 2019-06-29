@@ -1,6 +1,6 @@
-import React from 'react'
-import girlFace from './ryanlerch_girlface4.svg';
+import React from 'react';
 import './ImageContainer.css';
+import { Image, Transformation } from 'cloudinary-react';
 
 class ImageContainer extends React.Component {
     containerCss() {
@@ -12,39 +12,28 @@ class ImageContainer extends React.Component {
 
     innerContainerCss() {
         return {
-            'borderWidth': '3px',
-            'borderStyle': 'dashed',
-            'borderColor': '#000000',
-            'borderRadius': '40px 0px 40px 0px',
-            'margin': '1px',
-            'float': 'left',
             'width': `${this.props.boxSize - 10}px`,
-            'height': `${this.props.boxSize - 10}px`,
-            'position': 'relative'
+            'height': `${this.props.boxSize - 10}px`
         }
     }
 
-    imageMainCss() {
-        return {
-            'height': `${this.props.boxSize - 80}px`,
-        }
+    innerSize() {
+        let size = this.props.boxSize - 15;
+        return size;
     }
 
     render() {
         return(
-            <React.Fragment>
-                <div onClick={this.props.onClick} className="container" 
-                style={this.containerCss()}>
-                    <div className="inner-container" 
-                    style={this.innerContainerCss()}>
-                        <img src={girlFace} alt="face" 
-                        className="image" style={this.imageMainCss()} />
-                        <div className="middle">
-                            <div>Upload</div>
-                        </div>
-                    </div>
+            <div onClick={this.props.onClick} className="container" style={this.containerCss()}>
+            <div className="inner-container" style={this.innerContainerCss()}>
+            <Image cloudName={this.props.cloudName} publicId={this.props.publicId} alt="should_be_image" className="image" height={this.innerSize()} width={this.innerSize()}>
+                <Transformation crop="fill" />
+                </Image>
+                <div className="middle">
+                    <div>Upload</div>
                 </div>
-            </React.Fragment>
+            </div>
+    </div>
         );
     }
 }

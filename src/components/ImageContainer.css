@@ -1,7 +1,12 @@
 .inner-container {
     position: relative;
-    overflow: 'auto';
-    
+    overflow: auto;
+    border-width: 3px;
+    border-style: dashed;
+    border-color: #000000;
+    border-radius: 40px 0px 40px 0px;
+    margin: '1px';
+    float: 'left';
 }
 
 .image {
