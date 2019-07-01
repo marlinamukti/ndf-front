@@ -6,7 +6,12 @@ const emptyId = 'common/default_empty_image_IG_uqv3zi.svg';
 const loadingId = 'common/loading_001_gy5tff.svg';
 const errorId = 'common/loading_error_001_j7fevh.svg';
 
-class TestingTag extends React.Component {
+// will require props:
+//    boxSize: size of the rectangle
+//    imageAlbum: a folder in cloud to be created and/or saved into
+//    cloudName: a cloud name specified in cloudinary
+
+class ImageCustomUpload extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -100,4 +105,5 @@ class TestingTag extends React.Component {
     }
 }
 
-export default TestingTag;
+
+export default ImageCustomUpload;
