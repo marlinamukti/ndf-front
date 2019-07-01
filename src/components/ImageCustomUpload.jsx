@@ -27,6 +27,8 @@ class TestingTag extends React.Component {
             'Authorization': 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkMTYzMzE1Nzg4MjU2MzAyY2M1ZTBmMSIsInVzZXJuYW1lIjoidXdhdGVzdDAxIiwiZW1haWwiOiJ1d2F0ZXN0MDFAdGVzdC5jb20iLCJpYXQiOjE1NjE4MTM2NDgsImV4cCI6MTU2MTg1Njg0OH0.HnCdoHM-MwjtpOQvv0a5TI-J9y9LjC4ZPeAuGJ16E-bh7fhB1WkFGldnD5XaqfMgcCcXcNVRDXNKsrXsTZB9wQ'
         }
 
+        // todo: read URL, headers from STORE instead
+
         data.append('file', file);
         if (this.props.imageAlbum !== undefined) {
           data.append('album', this.props.imageAlbum);
