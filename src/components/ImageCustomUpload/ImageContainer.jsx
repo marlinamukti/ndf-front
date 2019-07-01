@@ -25,15 +25,15 @@ class ImageContainer extends React.Component {
     render() {
         return(
             <div onClick={this.props.onClick} className="container" style={this.containerCss()}>
-            <div className="inner-container" style={this.innerContainerCss()}>
-            <Image cloudName={this.props.cloudName} publicId={this.props.publicId} alt="should_be_image" className="image" height={this.innerSize()} width={this.innerSize()}>
-                <Transformation crop="fill" />
-                </Image>
-                <div className="middle">
-                    <div>Upload</div>
+                <div className="inner-container" style={this.innerContainerCss()}>
+                    <Image cloudName={this.props.cloudName} publicId={this.props.publicId} alt="should_be_image" className="image" height={this.innerSize()} width={this.innerSize()}>
+                    <Transformation crop="fill" />
+                    </Image>
+                    <div className="middle">
+                        <div>Click To Browse</div>
+                    </div>
                 </div>
             </div>
-    </div>
         );
     }
 }

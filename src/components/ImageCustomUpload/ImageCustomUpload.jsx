@@ -2,6 +2,7 @@ import React from 'react';
 import ImageContainer from './ImageContainer';
 import Axios from 'axios';
 
+// examples
 const emptyId = 'common/default_empty_image_IG_uqv3zi.svg';
 const loadingId = 'common/loading_001_gy5tff.svg';
 const errorId = 'common/loading_error_001_j7fevh.svg';
@@ -10,6 +11,7 @@ const errorId = 'common/loading_error_001_j7fevh.svg';
 //    boxSize: size of the rectangle
 //    imageAlbum: a folder in cloud to be created and/or saved into
 //    cloudName: a cloud name specified in cloudinary
+//    publicId: initial publicId (image identifier) to load first
 
 class ImageCustomUpload extends React.Component {
     constructor(props) {
@@ -17,7 +19,7 @@ class ImageCustomUpload extends React.Component {
       this.state = {
         files: [],
         boxSize: this.props.boxSize,
-        publicId: emptyId,
+        publicId: this.props.publicId,
         showLoading: false,
         message: 'ready'
       }
@@ -78,7 +80,7 @@ class ImageCustomUpload extends React.Component {
       this.refs.fileUploader.click();
     }
 
-    handleFileSelected = (event) => {
+    handleFileSelected1 = (event) => {
       let { target } = event;
       let newFile = [];
       newFile.push(target.files[0]);
@@ -87,6 +89,13 @@ class ImageCustomUpload extends React.Component {
       });
       this.showLoading();
       this.uploadFile();
+    }
+
+    handleFileSelected = (event) => {
+      this.setState({
+        publicId: errorId
+      });
+
     }
   
     render() {
