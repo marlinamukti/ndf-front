@@ -1,6 +1,6 @@
-import { STORECONST } from './actionTypes.js';
+import { STORECONST } from './actionTypes';
 import { combineReducers } from 'redux';
-import { initialState } from './initialState.js';
+import { initialState } from './initialState';
 
 function stores(state = initialState.stores, action) {
     const stores = [...state];
