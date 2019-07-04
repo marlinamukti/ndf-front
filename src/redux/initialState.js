@@ -1,3 +1,6 @@
 export const initialState = {
-    stores: []
+    stores: [], // this is indicate a store entity
+    user: {
+        token: ''
+    }
 }
