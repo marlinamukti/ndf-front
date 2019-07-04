@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../img/logo.png';
+import { connect } from 'react-redux';
 
 class Login extends React.Component {
     constructor(props) {
@@ -46,10 +47,17 @@ class Login extends React.Component {
                     <button type="submit" className="btn btn-lg btn-block btn-big-pink" onClick={this.handleLoginButton}>Log In</button>
                     
                     <p className="mt-5 mb-3 text-muted">&copy; 2019 </p>
+                    <p>{this.props.user.token}</p>
                 </div>
             </div> 
         );
     }
 }
 
-export default Login;
+function mapStateToProps(state) {
+    return {
+        user: state.user
+    };
+}
+
+export default connect(mapStateToProps)(Login);

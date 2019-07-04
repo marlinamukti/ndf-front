@@ -1,4 +1,4 @@
-import { STORECONST } from './actionTypes';
+import { STORECONST, USERCONST } from './actionTypes';
 import { combineReducers } from 'redux';
 import { initialState } from './initialState';
 
@@ -13,6 +13,18 @@ function stores(state = initialState.stores, action) {
     }
 }
 
+function user(state = initialState.user, action) {
+    const user = {...state};
+
+    switch (action.type) {
+        case USERCONST.GET_USER:
+            return user;
+        default:
+            return state;
+    }
+}
+
 export const rootReducer = combineReducers({
-    stores
+    stores,
+    user
 });

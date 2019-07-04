@@ -5,3 +5,7 @@ export const STORECONST = {
     UPDATE_STORE: 'UPDATE_STORE',
     DELETE_STORE: 'DELETE_STORE'
 }
+
+export const USERCONST = {
+    GET_USER: 'GET_USER'
+}
