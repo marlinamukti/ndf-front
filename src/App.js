@@ -1,8 +1,10 @@
 import React from 'react';
-import logo from './img/logo.png';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-import Main from './components/Main';
+import Main from './components/Main'; // this is how to import component
+import $ from 'jquery';
+import Popper from 'popper.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 class App extends React.Component {
   render() {

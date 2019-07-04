@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'; // always import this
 
-class Main extends React.Component{
-    render(){
+class Main extends React.Component{ // create component
+    render(){ // at least provide render() function that return a html element
       return(
         <div>
           <h1>Welcome,</h1>
@@ -10,11 +10,11 @@ class Main extends React.Component{
               User
             </button>
             <div className="dropdown-menu">
-              <a className="dropdown-item" href="#">Action</a>
-              <a className="dropdown-item" href="#">Another action</a>
-              <a className="dropdown-item" href="#">Something else here</a>
+              <button className="dropdown-item">Action</button>
+              <button className="dropdown-item">Another action</button>
+              <button className="dropdown-item">Something else here</button>
               <div className="dropdown-divider"></div>
-              <a className="dropdown-item" href="#">Separated link</a>
+              <button className="dropdown-item">Separated link</button>
             </div>
           </div>
           <div className="btn-group">
@@ -22,11 +22,11 @@ class Main extends React.Component{
               Customer
             </button>
             <div className="dropdown-menu">
-              <a className="dropdown-item" href="#">Action</a>
-              <a className="dropdown-item" href="#">Another action</a>
-              <a className="dropdown-item" href="#">Something else here</a>
+              <button className="dropdown-item">Action</button>
+              <button className="dropdown-item">Another action</button>
+              <button className="dropdown-item">Something else here</button>
               <div className="dropdown-divider"></div>
-              <a className="dropdown-item" href="#">Separated link</a>
+              <button className="dropdown-item">Separated link</button>
             </div>
           </div>
         </div>
@@ -34,4 +34,4 @@ class Main extends React.Component{
     }
 }
 
-export default Main;
+export default Main; // always import
