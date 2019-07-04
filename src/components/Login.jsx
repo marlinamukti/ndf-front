@@ -31,7 +31,7 @@ class Login extends React.Component {
             <div className="div-signin">
                 <div className="form-signin shadow text-center">
                     <h1 className=" text-center h1-login">LOGIN</h1>
-                    <img src={logo} width="150" className="text-center" alt="logo image"></img>
+                    <img src={logo} width="150" className="text-center" alt="logo should be here"></img>
 
                     <label htmlFor="inputUsername" className="sr-only">Username</label>
                     <input type="text" 
