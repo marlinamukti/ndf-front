@@ -7,5 +7,7 @@ export const STORECONST = {
 }
 
 export const USERCONST = {
-    GET_USER: 'GET_USER'
+    GET_USER: 'GET_USER',
+    USER_LOGIN: 'USER_LOGIN',
+    USER_LOGOUT: 'USER_LOGOUT'
 }

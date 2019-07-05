@@ -5,5 +5,13 @@ export function addStore(payload) {
 }
 
 export function getUser(payload) {
-    return { type: USERCONST.GET_USER, payload};
+    return { type: USERCONST.GET_USER, payload };
+}
+
+export function userLogin(payload) {
+    return { type: USERCONST.USER_LOGIN, payload };
+}
+
+export function userLogout(payload) {
+    return { type: USERCONST.USER_LOGOUT, payload};
 }
