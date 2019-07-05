@@ -1,13 +1,16 @@
 import React from 'react';
 import logo from '../img/logo.png';
 import { connect } from 'react-redux';
+import { userLogin } from '../redux/actions';
+import { Redirect } from 'react-router-dom';
 
 class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            redirectToReferrer: false
         }
     }
 
@@ -24,10 +27,33 @@ class Login extends React.Component {
     }
 
     handleLoginButton = (event) => {
-        console.log(`logging in with '${this.state.username}' and '${this.state.password}'`);
+        // console.log(`logging in with '${this.state.username}' and '${this.state.password}'`);
+        let payload = {
+            token: '1234',
+            username: this.state.username,
+            password: this.state.password,
+            isAuthenticated: true
+        }
+        
+        this.props.userLogin(payload);
+
+        this.setState({
+            redirectToReferrer: true
+        });
     }
 
     render() {
+        const { from } = this.props.location.state || { from: { pathname: '/' } };
+        const { redirectToReferrer } = this.state;
+    
+        if (redirectToReferrer === true) {
+            return <Redirect to={from} />
+        }
+
+        if (this.props.user.isAuthenticated) {
+            return <Redirect to='/' />
+        }
+
         return(
             <div className="div-signin">
                 <div className="form-signin shadow text-center">
@@ -60,4 +86,10 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(Login);
+function mapDispatchToProps(dispatch) {
+    return {
+        userLogin: user => dispatch(userLogin(user))
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
