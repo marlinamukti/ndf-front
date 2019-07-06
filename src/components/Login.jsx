@@ -29,17 +29,17 @@ class Login extends React.Component {
     handleLoginButton = (event) => {
         // console.log(`logging in with '${this.state.username}' and '${this.state.password}'`);
         let payload = {
-            token: '1234',
             username: this.state.username,
             password: this.state.password,
-            isAuthenticated: true
         }
         
         this.props.userLogin(payload);
-
-        this.setState({
-            redirectToReferrer: true
-        });
+        if (this.props.user.isAuthenticated) {
+            this.setState({
+                redirectToReferrer: true
+            });
+        }
+        
     }
 
     render() {
@@ -73,7 +73,7 @@ class Login extends React.Component {
                     <button type="submit" className="btn btn-lg btn-block btn-big-pink" onClick={this.handleLoginButton}>Log In</button>
                     
                     <p className="mt-5 mb-3 text-muted">&copy; 2019 </p>
-                    <p>{this.props.user.token}</p>
+                    <p>{this.props.message}</p>
                 </div>
             </div> 
         );
@@ -82,7 +82,8 @@ class Login extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.user
+        user: state.user,
+        message: state.errors.message
     };
 }
 
