@@ -30,7 +30,11 @@ function tryLogin(action) {
     })
     .then(response => {
         console.log(response);
-        return response.data;
+        if (response.data.message === 'user not found!' || response.data.message === 'Missing credentials') {
+            throw new Error(response.data.message);
+        } else {
+            return response.data;
+        }
     })
     .catch(error => {
         throw error;
