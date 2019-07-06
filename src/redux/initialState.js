@@ -5,5 +5,8 @@ export const initialState = {
         username: '',
         password: '',
         isAuthenticated: false
+    },
+    error: {
+        message: ''
     }
 }

@@ -9,7 +9,7 @@ export function getUser(payload) {
 }
 
 export function userLogin(payload) {
-    return { type: USERCONST.USER_LOGIN, payload };
+    return { type: USERCONST.REQ_USER_LOGIN, payload };
 }
 
 export function userLogout(payload) {

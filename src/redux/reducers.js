@@ -31,7 +31,21 @@ function user(state = initialState.user, action) {
     }
 }
 
+function errors(state = initialState.error, action) {
+    switch (action.type) {
+        case 'ERROR_FETCH':
+            let newErr = {
+                message: action.message
+            }
+            return newErr;
+
+        default:
+            return state;
+    }
+}
+
 export const rootReducer = combineReducers({
     stores,
-    user
+    user,
+    errors
 });
