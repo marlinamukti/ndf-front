@@ -9,15 +9,23 @@ export default function* watcherLoginSaga() {
 function* workerLoginSaga(action) {
     try {
         const response = yield call(tryLogin, action);
-        console.log(`worker response ${JSON.stringify(response)}`);
-        console.log(`action var ${JSON.stringify(action)}`);
-        const payload = {
-            token: response.token,
-            username: response.username,
-            password: 'response.password',
-            isAuthenticated: true
+        // console.log(`worker response ${JSON.stringify(response)}`);
+        // console.log(`action var ${JSON.stringify(action)}`);
+        if (response.token !== '') {
+            const payload = {
+                token: response.token,
+                username: response.username,
+                password: 'response.password',
+                isAuthenticated: true
+            }
+            yield put({ 
+                type: USERCONST.USER_LOGIN, 
+                payload 
+            });
+        } else {
+            throw new Error(response.message);
         }
-        yield put({ type: USERCONST.USER_LOGIN, payload });
+        
     } catch (e) {
         yield put({ type: 'ERROR_FETCH', message: e.message });
     }
@@ -29,7 +37,7 @@ function tryLogin(action) {
         password: action.payload.password
     })
     .then(response => {
-        console.log(response);
+        // console.log(response);
         if (response.data.message === 'user not found!' || response.data.message === 'Missing credentials') {
             throw new Error(response.data.message);
         } else {
