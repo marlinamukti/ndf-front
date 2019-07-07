@@ -14,8 +14,9 @@ function* workerLoginSaga(action) {
         if (response.token !== '') {
             const payload = {
                 token: response.token,
-                username: response.username,
-                password: 'response.password',
+                username: response.user.username,
+                id: response.user.id,
+                email: response.user.email,
                 isAuthenticated: true
             }
             yield put({ 
@@ -37,7 +38,7 @@ function tryLogin(action) {
         password: action.payload.password
     })
     .then(response => {
-        // console.log(response);
+        // console.log(response.data);
         if (response.data.message === 'user not found!' || response.data.message === 'Missing credentials') {
             throw new Error(response.data.message);
         } else {
