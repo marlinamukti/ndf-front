@@ -4,16 +4,9 @@ import { connect } from 'react-redux';
 import {
     BrowserRouter as Router,
     Route,
-    Redirect,
-    withRouter
+    Redirect
 } from 'react-router-dom';
 import UserInfo from './UserInfo';
-
-class PublicPage extends React.Component {
-    render() {
-        return <h2>Public Page</h2>;
-    }
-}
 
 class ProtectedPage extends React.Component {
     render() {

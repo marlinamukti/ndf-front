@@ -9,8 +9,8 @@ export default function* watcherLoginSaga() {
 function* workerLoginSaga(action) {
     try {
         const response = yield call(tryLogin, action);
-        // console.log(`worker response ${JSON.stringify(response)}`);
-        // console.log(`action var ${JSON.stringify(action)}`);
+        // console.log(`tryLogin response `, response);
+        // console.log(`action var `, action);
         if (response.token !== '') {
             const payload = {
                 token: response.token,
