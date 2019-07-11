@@ -8,6 +8,8 @@ export default function* watcherLoginSaga() {
 
 function* workerLoginSaga(action) {
     try {
+        const reqip = yield call (getClientIP);
+        action.payload.ip = reqip.ip;
         const response = yield call(tryLogin, action);
         // console.log(`tryLogin response `, response);
         // console.log(`action var `, action);
@@ -35,7 +37,8 @@ function* workerLoginSaga(action) {
 function tryLogin(action) {
     return Axios.post('http://localhost:4000/auth/login', {
         username: action.payload.username,
-        password: action.payload.password
+        password: action.payload.password,
+        ip: action.payload.ip
     })
     .then(response => {
         // console.log(response.data);
@@ -47,5 +50,17 @@ function tryLogin(action) {
     })
     .catch(error => {
         throw error;
+    });
+}
+
+function getClientIP() {
+    return Axios.get('https://api.ipify.org/?format=json')
+    .then(response => {
+        return response.data;
+    })
+    .catch(error => {
+        return {
+            ip: null
+        }
     });
 }
